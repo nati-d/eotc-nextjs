@@ -12,27 +12,14 @@ import {
 } from "@/components/ui/resizable-navbar";
 import { useState } from "react";
 import Link from "next/link";
-import { useUserStore } from "@/store/user-store";
 import { logout } from "@/app/actions/auth";
+import { NAVBAR_MENU_ITEMS } from "@/constants/navbar";
+import { usePathname } from "next/navigation";
 
 export function NavbarComponent() {
-  const { userData } = useUserStore();
-  const isAuthenticated = !!userData;
-
-  const navItems = [
-    {
-      name: "Features",
-      link: "#features",
-    },
-    {
-      name: "Pricing",
-      link: "#pricing",
-    },
-    {
-      name: "Contact",
-      link: "#contact",
-    },
-  ];
+  const pathname = usePathname();
+  // If not on auth pages, user is authenticated (middleware protects routes)
+  const isAuthenticated = !pathname?.startsWith('/auth');
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -46,21 +33,16 @@ export function NavbarComponent() {
         {/* Desktop Navigation */}
         <NavBody>
           <NavbarLogo />
-          <NavItems items={navItems} />
+          <NavItems items={NAVBAR_MENU_ITEMS} />
           <div className="flex items-center gap-4">
             {isAuthenticated ? (
-              <>
-                <span className="text-sm text-muted-foreground">
-                  {userData?.first_name} {userData?.last_name}
-                </span>
-                <NavbarButton 
-                  variant="primary" 
-                  as="button"
-                  onClick={handleLogout}
-                >
-                  Logout
-                </NavbarButton>
-              </>
+              <NavbarButton 
+                variant="primary" 
+                as="button"
+                onClick={handleLogout}
+              >
+                Logout
+              </NavbarButton>
             ) : (
               <NavbarButton variant="secondary" as={Link} href="/auth/login">
                 Login
@@ -83,7 +65,7 @@ export function NavbarComponent() {
             isOpen={isMobileMenuOpen}
             onClose={() => setIsMobileMenuOpen(false)}
           >
-            {navItems.map((item, idx) => (
+            {NAVBAR_MENU_ITEMS.map((item, idx) => (
               <a
                 key={`mobile-link-${idx}`}
                 href={item.link}
@@ -95,22 +77,17 @@ export function NavbarComponent() {
             ))}
             <div className="flex w-full flex-col gap-4">
               {isAuthenticated ? (
-                <>
-                  <div className="text-sm text-muted-foreground mb-2">
-                    {userData?.first_name} {userData?.last_name}
-                  </div>
-                  <NavbarButton
-                    onClick={async () => {
-                      setIsMobileMenuOpen(false);
-                      await handleLogout();
-                    }}
-                    variant="primary"
-                    className="w-full"
-                    as="button"
-                  >
-                    Logout
-                  </NavbarButton>
-                </>
+                <NavbarButton
+                  onClick={async () => {
+                    setIsMobileMenuOpen(false);
+                    await handleLogout();
+                  }}
+                  variant="primary"
+                  className="w-full"
+                  as="button"
+                >
+                  Logout
+                </NavbarButton>
               ) : (
                 <NavbarButton
                   onClick={() => setIsMobileMenuOpen(false)}

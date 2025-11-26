@@ -91,7 +91,7 @@ api.interceptors.response.use(
                 )
 
                 const newAccessToken = response.data.access_token
-                const newRefreshToken = response.data.refresh_token
+                const newRefreshToken = response.data.refresh_token // May be undefined if API doesn't rotate refresh tokens
 
                 if (newAccessToken) {
                     // Update cookies with new tokens
@@ -104,6 +104,8 @@ api.interceptors.response.use(
                         path: '/',
                     })
 
+                    // Only update refresh token if a new one is provided
+                    // Some APIs don't rotate refresh tokens on every refresh
                     if (newRefreshToken) {
                         cookiesStore.set('refresh_token', newRefreshToken, {
                             httpOnly: true,

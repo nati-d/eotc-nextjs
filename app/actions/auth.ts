@@ -108,50 +108,6 @@ export async function register(
     }
 }
 
-export async function getUserData() {
-    try {
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL
-        if (!apiUrl) {
-            throw new Error('API URL is not configured. Please set NEXT_PUBLIC_API_URL in your environment variables.')
-        }
-
-        const cookiesStore = await cookies()
-        const accessToken = cookiesStore.get('access_token')?.value
-
-        if (!accessToken) {
-            // Return null instead of throwing error - let the UI handle it gracefully
-            return null
-        }
-
-        const response = await fetch(`${apiUrl}/auth/me`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${accessToken}`,
-            },
-        })
-
-        if (!response.ok) {
-            if (response.status === 401) {
-                // Token expired or invalid
-                cookiesStore.delete('access_token')
-                cookiesStore.delete('refresh_token')
-                throw new Error('Session expired. Please login again.')
-            }
-            const errorData = await response.json().catch(() => ({}))
-            throw new Error(errorData.message || 'Failed to fetch user data')
-        }
-
-        const data = await response.json()
-        return data
-    } catch (error) {
-        if (error instanceof Error) {
-            throw error
-        }
-        throw new Error('An unexpected error occurred while fetching user data')
-    }
-}
-
 export async function logout() {
     const cookiesStore = await cookies()
     cookiesStore.delete('access_token')
