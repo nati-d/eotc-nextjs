@@ -54,7 +54,7 @@ export function NavbarComponent() {
                   {userData?.first_name} {userData?.last_name}
                 </span>
                 <NavbarButton 
-                  variant="secondary" 
+                  variant="primary" 
                   as="button"
                   onClick={handleLogout}
                 >
