@@ -84,11 +84,16 @@ export function LoginForm() {
 
   return (
     <div className="w-full max-w-sm space-y-8 bg-white p-8 rounded-lg border">
-      <div className="space-y-2 text-center">
-        <h1 className="text-2xl font-semibold tracking-tight">Login to <NavbarLogo showLink={false} className="inline-block mr-0" /></h1>
-        <p className="text-muted-foreground text-sm">
-          Enter your email and password to access your account
-        </p>
+      <div className="space-y-4 text-center">
+        <div className="flex justify-center">
+          <NavbarLogo showLink={false} className="mx-auto" />
+        </div>
+        <div className="space-y-2">
+          <h1 className="text-2xl font-semibold tracking-tight">Login to EOTC Resource Hub</h1>
+          <p className="text-muted-foreground text-sm">
+            Enter your email and password to access your account
+          </p>
+        </div>
       </div>
 
       <Form {...form}>

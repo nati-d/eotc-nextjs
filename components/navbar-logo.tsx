@@ -14,7 +14,7 @@ export function NavbarLogo({
 }: NavbarLogoProps) {
   const logoContent = (
     <Image
-      src="/images/eocrh-logo.png"
+      src="/eocrh-logo.png"
       alt="EOTC Resource Hub Logo"
       width={120}
       height={40}
@@ -43,7 +43,7 @@ export function NavbarLogo({
   }
 
   return (
-    <div className={`relative z-[70] mr-4 flex items-center justify-center px-2 py-1 shrink-0 ${className}`}>
+    <div className={`flex items-center justify-center shrink-0 ${className}`}>
       {logoContent}
     </div>
   );

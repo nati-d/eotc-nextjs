@@ -19,6 +19,7 @@ import type { RegisterFormValues } from "@/types/auth-types";
 import { register } from "@/app/actions/auth";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
+import { NavbarLogo } from "@/components/navbar-logo";
 
 export function RegisterForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -90,11 +91,16 @@ export function RegisterForm() {
 
   return (
     <div className="w-full max-w-sm space-y-8 bg-white p-8 rounded-lg border">
-      <div className="space-y-2 text-center">
-        <h1 className="text-2xl font-semibold tracking-tight">Create an account</h1>
-        <p className="text-muted-foreground text-sm">
-          Enter your information to get started
-        </p>
+      <div className="space-y-4 text-center">
+        <div className="flex justify-center">
+          <NavbarLogo showLink={false} className="mx-auto" />
+        </div>
+        <div className="space-y-2">
+          <h1 className="text-2xl font-semibold tracking-tight">Create an account</h1>
+          <p className="text-muted-foreground text-sm">
+            Enter your information to get started
+          </p>
+        </div>
       </div>
 
       <Form {...form}>
