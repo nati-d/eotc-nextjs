@@ -80,9 +80,14 @@ export function NavbarComponent() {
                 Logout
               </NavbarButton>
             ) : (
-              <NavbarButton variant="primary" as={Link} href="/auth/login">
-                Login
-              </NavbarButton>
+              <>
+                <NavbarButton variant="primary" as={Link} href="/auth/login">
+                  Login
+                </NavbarButton>
+                <NavbarButton variant="secondary" as={Link} href="/auth/register" className="border border-foreground/20">
+                  Sign Up
+                </NavbarButton>
+              </>
             )}
           </div>
         </NavBody>
@@ -125,15 +130,26 @@ export function NavbarComponent() {
                   Logout
                 </NavbarButton>
               ) : (
-                <NavbarButton
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  variant="primary"
-                  className="w-full"
-                  as={Link}
-                  href="/auth/login"
-                >
-                  Login
-                </NavbarButton>
+                <>
+                  <NavbarButton
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    variant="primary"
+                    className="w-full"
+                    as={Link}
+                    href="/auth/login"
+                  >
+                    Login
+                  </NavbarButton>
+                  <NavbarButton
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    variant="secondary"
+                    className="w-full border border-foreground/20"
+                    as={Link}
+                    href="/auth/register"
+                  >
+                    Sign Up
+                  </NavbarButton>
+                </>
               )}
             </div>
           </MobileNavMenu>
