@@ -23,10 +23,10 @@ export function FAQ({ items }: FAQProps) {
   return (
     <div className="w-full bg-white dark:bg-neutral-950 font-sans">
       <Container className="py-20">
-        <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl">
+        <h2 className="text-lg md:text-4xl mb-4 font-bold text-black dark:text-white max-w-4xl">
           Frequently Asked Questions
         </h2>
-        <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm mb-12">
+        <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
           Everything you need to know to get the most out of your spiritual journey
         </p>
       </Container>
