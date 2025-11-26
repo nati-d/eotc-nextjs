@@ -2,8 +2,13 @@ import axios from 'axios'
 import { getAccessToken, getRefreshToken } from '@/lib/utils/auth'
 import { cookies } from 'next/headers'
 
+const apiUrl = process.env.NEXT_PUBLIC_API_URL
+if (!apiUrl) {
+    console.error('NEXT_PUBLIC_API_URL is not defined. Please set it in your environment variables.')
+}
+
 const api = axios.create({
-    baseURL: process.env.NEXT_PUBLIC_API_URL,
+    baseURL: apiUrl,
     headers: {
         'Content-Type': 'application/json',
     },
@@ -71,8 +76,12 @@ api.interceptors.response.use(
                     throw new Error('No refresh token available')
                 }
 
+                if (!apiUrl) {
+                    throw new Error('API URL is not configured')
+                }
+
                 const response = await axios.post(
-                    `${process.env.NEXT_PUBLIC_API_URL}/auth/refresh`,
+                    `${apiUrl}/auth/refresh`,
                     { refresh_token: refreshToken },
                     {
                         headers: {

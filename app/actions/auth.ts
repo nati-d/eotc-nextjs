@@ -5,7 +5,12 @@ import { redirect } from 'next/navigation'
 
 export async function login(email: string, password: string) {
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL
+        if (!apiUrl) {
+            throw new Error('API URL is not configured. Please set NEXT_PUBLIC_API_URL in your environment variables.')
+        }
+
+        const response = await fetch(`${apiUrl}/auth/login`, {
             method: 'POST',
             body: JSON.stringify({ email, password }),
             headers: { 'Content-Type': 'application/json' },
