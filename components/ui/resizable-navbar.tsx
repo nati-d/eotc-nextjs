@@ -8,7 +8,7 @@ import {
   useMotionValueEvent,
 } from "motion/react";
 import Link from "next/link";
-import Image from "next/image";
+import { NavbarLogo } from "@/components/navbar-logo";
 
 import React, { useRef, useState } from "react";
 
@@ -230,31 +230,8 @@ export const MobileNavToggle = ({
   );
 };
 
-export const NavbarLogo = () => {
-  return (
-    <Link
-      href="/"
-      className="relative z-[70] mr-4 flex items-center justify-center px-2 py-1 shrink-0"
-    >
-      <Image
-        src="/images/eocrh-logo.png"
-        alt="EOTC Resource Hub Logo"
-        width={120}
-        height={40}
-        className="h-8 w-auto object-contain block"
-        priority
-        unoptimized
-        style={{ 
-          display: 'block',
-          maxHeight: '32px',
-          width: 'auto',
-          height: 'auto',
-          filter: 'contrast(1.2) brightness(0.9)'
-        }}
-      />
-    </Link>
-  );
-};
+// NavbarLogo is now exported from @/components/navbar-logo
+export { NavbarLogo } from "@/components/navbar-logo";
 
 export const NavbarButton = ({
   href,

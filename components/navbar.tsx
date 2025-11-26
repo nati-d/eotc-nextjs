@@ -4,12 +4,12 @@ import {
   NavBody,
   NavItems,
   MobileNav,
-  NavbarLogo,
   NavbarButton,
   MobileNavHeader,
   MobileNavToggle,
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
+import { NavbarLogo } from "@/components/navbar-logo";
 import { useState } from "react";
 import Link from "next/link";
 import { logout } from "@/app/actions/auth";

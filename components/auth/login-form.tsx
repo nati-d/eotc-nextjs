@@ -19,6 +19,7 @@ import type { LoginFormValues } from "@/types/auth-types";
 import { login } from "@/app/actions/auth";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
+import { NavbarLogo } from "@/components/navbar-logo";
 
 export function LoginForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -84,7 +85,7 @@ export function LoginForm() {
   return (
     <div className="w-full max-w-sm space-y-8 bg-white p-8 rounded-lg border">
       <div className="space-y-2 text-center">
-        <h1 className="text-2xl font-semibold tracking-tight">Login to EOTC Hub</h1>
+        <h1 className="text-2xl font-semibold tracking-tight">Login to <NavbarLogo showLink={false} className="inline-block mr-0" /></h1>
         <p className="text-muted-foreground text-sm">
           Enter your email and password to access your account
         </p>
