@@ -50,7 +50,7 @@ export function FeaturesSection() {
       content: (
         <div>
           <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-            Share resources you've found or created with the community. Upload PDFs, videos, audio files, and more. Categorize and tag your uploads so others can easily discover them.
+            Share resources you&apos;ve found or created with the community. Upload PDFs, videos, audio files, and more. Categorize and tag your uploads so others can easily discover them.
           </p>
           <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
             Every resource shows who uploaded it and when, helping you gauge relevance and freshness. Filter by conversion stages - from catechism to baptism to post-baptismal life.

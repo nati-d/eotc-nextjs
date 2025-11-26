@@ -114,6 +114,7 @@ export async function isAuthenticated() {
         const accessToken = cookiesStore.get('access_token')?.value
         return !!accessToken
     } catch (error) {
+        console.error(error)
         return false
     }
 }
@@ -126,6 +127,7 @@ export async function logout() {
         cookiesStore.delete('refresh_token')
         redirect('/auth/login')
     } catch (error) {
+        console.error(error)
         // Even if cookie deletion fails, still redirect to login
         redirect('/auth/login')
     }

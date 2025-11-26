@@ -7,8 +7,6 @@ import {
   useScroll,
   useMotionValueEvent,
 } from "motion/react";
-import Link from "next/link";
-import { NavbarLogo } from "@/components/navbar-logo";
 
 import React, { useRef, useState } from "react";
 

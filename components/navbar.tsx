@@ -27,6 +27,7 @@ export function NavbarComponent() {
         const authStatus = await checkAuth();
         setAuthenticated(authStatus);
       } catch (error) {
+        console.error(error)
         setAuthenticated(false);
       }
     };
