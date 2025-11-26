@@ -109,8 +109,14 @@ export async function register(
 }
 
 export async function logout() {
-    const cookiesStore = await cookies()
-    cookiesStore.delete('access_token')
-    cookiesStore.delete('refresh_token')
-    redirect('/auth/login')
+    try {
+        const cookiesStore = await cookies()
+        // Delete cookies (path is automatically handled by Next.js)
+        cookiesStore.delete('access_token')
+        cookiesStore.delete('refresh_token')
+        redirect('/auth/login')
+    } catch (error) {
+        // Even if cookie deletion fails, still redirect to login
+        redirect('/auth/login')
+    }
 }

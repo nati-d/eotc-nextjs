@@ -24,7 +24,24 @@ export function NavbarComponent() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleLogout = async () => {
-    await logout();
+    try {
+      await logout();
+    } catch (err) {
+      // Check if this is a Next.js redirect error (redirect() throws a special error)
+      // Redirect errors have a digest property starting with 'NEXT_REDIRECT'
+      if (
+        err &&
+        typeof err === 'object' &&
+        'digest' in err &&
+        typeof err.digest === 'string' &&
+        err.digest.startsWith('NEXT_REDIRECT')
+      ) {
+        // This is a redirect, not an error - let it happen
+        return;
+      }
+      // If it's a real error, log it (you might want to show a toast or error message)
+      console.error('Logout error:', err);
+    }
   };
 
   return (

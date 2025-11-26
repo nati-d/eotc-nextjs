@@ -89,10 +89,7 @@ export function LoginForm() {
           <NavbarLogo showLink={false} className="mx-auto" />
         </div>
         <div className="space-y-2">
-          <h1 className="text-2xl font-semibold tracking-tight">Login to EOTC Resource Hub</h1>
-          <p className="text-muted-foreground text-sm">
-            Enter your email and password to access your account
-          </p>
+          <h1 className="text-2xl font-semibold tracking-tight">Welcome back!</h1>
         </div>
       </div>
 
