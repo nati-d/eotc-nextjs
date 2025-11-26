@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 
-
 export const metadata: Metadata = {
   title: "Authentication",
   description: "Authentication",
@@ -12,8 +11,8 @@ export default function AuthLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-        {children}
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+      {children}
     </div>
   );
 }
