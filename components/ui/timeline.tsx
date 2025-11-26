@@ -43,7 +43,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           Powerful Features
         </h2>
         <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
-          Discover what makes EOTC Resource Hub the perfect solution for managing your resources effectively.
+          Built for converts, by the community. Everything you need in one place.
         </p>
       </Container>
 
