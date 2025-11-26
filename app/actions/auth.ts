@@ -108,6 +108,16 @@ export async function register(
     }
 }
 
+export async function isAuthenticated() {
+    try {
+        const cookiesStore = await cookies()
+        const accessToken = cookiesStore.get('access_token')?.value
+        return !!accessToken
+    } catch (error) {
+        return false
+    }
+}
+
 export async function logout() {
     try {
         const cookiesStore = await cookies()
