@@ -99,7 +99,7 @@ export async function register(
             path: '/',
         })
 
-        redirect('/')
+        redirect('/auth/login')
     } catch (error) {
         if (error instanceof Error) {
             throw error
