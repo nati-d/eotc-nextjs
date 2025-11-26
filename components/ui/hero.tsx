@@ -16,16 +16,11 @@ export default function HeroSection() {
         <div className="relative z-10 mx-auto max-w-2xl lg:max-w-5xl  p-8 sm:p-10 lg:p-12">
           <h1 className="font-geist text-5xl font-normal tracking-tighter bg-gradient-to-r from-foreground via-foreground/80 to-foreground/60 bg-clip-text text-transparent sm:text-7xl">
             <span className="sr-only">EOTC Resource Hub - </span>
-            Welcome to EOTC Resource Hub
+            Your Gateway to Ethiopian Orthodox Faith
           </h1>
           <div className="mt-6 space-y-6 font-geist text-md sm:text-xl tracking-tight text-muted-foreground">
             <p>
-              Your central hub for accessing and managing resources. Connect with your community, share knowledge, and
-              discover valuable content tailored for you.
-            </p>
-            <p>
-              Explore our comprehensive library of resources, upload your own content, and collaborate with others in
-              the EOTC community.
+              Everything you need for your spiritual journey in one place. Find resources, share knowledge, and grow in faith with our community.
             </p>
           </div>
           <button className="mt-4 w-full md:w-52 font-geist tracking-tighter text-center rounded-md text-md bg-primary text-primary-foreground px-4 py-2 text-lg ring-2 ring-primary/50 ring-offset-2 ring-offset-background transition-all hover:scale-[1.02] hover:ring-transparent active:scale-[0.98] active:ring-primary/70 flex items-center justify-center gap-2">
